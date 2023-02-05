@@ -19,12 +19,13 @@ import {
 import { Tooltip } from "@chakra-ui/tooltip";
 import { useState } from "react";
 import { ChatState } from "../../context/chat-provider";
-import { Avatar, Spinner, useToast } from "@chakra-ui/react";
+import { Avatar, Image, Spinner, useToast } from "@chakra-ui/react";
 import ProfileModal from "./ProfileModal";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import ChatLoading from "../ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
+import IconApp from '../../asset/icons.png';
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
@@ -123,7 +124,10 @@ const SideDrawer = () => {
             <Text display={{ base: "none", md: "flex" }} px="4">Search User</Text>
           </Button>
         </Tooltip>
-        <Text fontSize={"2xl"} fontFamily="Work sans"> Talk-A-Tive </Text>
+        <Box display={"flex"} justifyContent="flex-start">
+        <Image height={50} width={50} src={IconApp}  alt={"Icon"}/>
+        <Text fontSize={"2xl"} paddingTop={2} fontFamily="Work sans"> Talk-A-Tive </Text>
+        </Box>
         <div>
           <Menu>
             <MenuButton p={1}> <i className="fa fa-bell" aria-hidden="true"></i> </MenuButton>

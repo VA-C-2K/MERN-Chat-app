@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import { getSender } from "../config/chatLogics";
 import { ChatState } from "../context/chat-provider";
 import ChatLoading from "./ChatLoading";
+import GroupChatModal from "./miscellaneous/GroupChatModal";
 
-const MyChats = () => {
+const MyChats = ({fetchAgain}) => {
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const [loggedUser, setLoggedUser] = useState();
   const toast = useToast();
@@ -35,7 +36,7 @@ const MyChats = () => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchAgain]);
   return (
     <Box
       display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
@@ -59,6 +60,7 @@ const MyChats = () => {
       >
 
       My Chats
+      <GroupChatModal>
       <Button
             display="flex"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
@@ -66,6 +68,7 @@ const MyChats = () => {
           >
             New Group Chat
           </Button>
+      </GroupChatModal>
       </Box>
       <Box
         display="flex"

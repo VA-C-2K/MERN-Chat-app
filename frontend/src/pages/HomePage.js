@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Container, Box, Text, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
+import { Container, Box, Text, Tabs, TabList, Tab, TabPanels, TabPanel, Image } from "@chakra-ui/react";
 import Login from '../components/Authentication/Login';
 import Signup from '../components/Authentication/Signup';
 import { useNavigate } from 'react-router-dom';
+import IconApp from '../asset/icons.png';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const HomePage = () => {
         borderRadius="lg"
         borderWidth="1px"
       >
+        <Image src={IconApp} height={50} width={50} alt={"Icon"}/>
         <Text fontSize="4xl" fontFamily="Work sans">
           Talk-A-Tive
         </Text>
