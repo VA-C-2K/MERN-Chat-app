@@ -1,7 +1,7 @@
 {
-  "name": "talkative",
+  "name": "connectnow",
   "version": "1.0.0",
-  "description": "",
+  "description": "MERN Chatting App",
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js"
@@ -16,6 +16,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.6.0"
   }
 }

@@ -28,7 +28,7 @@ const HomePage = () => {
       >
         <Image src={IconApp} height={50} width={50} alt={"Icon"}/>
         <Text fontSize="4xl" fontFamily="Work sans">
-          Talk-A-Tive
+        Connect-Now
         </Text>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth={"1px"}>

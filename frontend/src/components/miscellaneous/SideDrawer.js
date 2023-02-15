@@ -181,4 +181,4 @@ const SideDrawer = () => {
   )
 }
 
-export default SideDrawer
+export default SideDrawer;
