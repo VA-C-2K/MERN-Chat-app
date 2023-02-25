@@ -26,6 +26,9 @@ import axios from "axios"
 import ChatLoading from "../ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
 import IconApp from '../../asset/icons.png';
+import { getSender } from "../../config/chatLogics";
+import { Effect } from "react-notification-badge";
+import NotificationBadge from "react-notification-badge";
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
@@ -130,7 +133,24 @@ const SideDrawer = () => {
         </Box>
         <div>
           <Menu>
-            <MenuButton p={1}> <i className="fa fa-bell" aria-hidden="true"></i> </MenuButton>
+            <MenuButton p={1}> 
+            <NotificationBadge
+            count={notification.length}
+            effect={Effect.SCALE}
+            />
+            <i className="fa fa-bell" aria-hidden="true" m={1} fontSize={"2xl"}></i>
+             </MenuButton>
+            <MenuList pl={2}>
+              {!notification.length && "No New Messages"}
+              {notification?.map((notif)=>(
+                <MenuItem key={notif._id} onClick={()=>{
+                  setSelectedChat(notif.chat);
+                  setNotification(notification.filter((n)=> n!== notif));
+                }}>
+                {notif.chat.isGroupChat ? `New Message in ${notif.chat.chatName}` : `New Message From ${getSender(user,notif.chat.users)}`}
+                </MenuItem>
+              ))}
+            </MenuList>
           </Menu>
           <Menu>
             <MenuButton as={Button} bg="white" rightIcon={<i className="fa fa-chevron-down" aria-hidden="true"></i>}>
