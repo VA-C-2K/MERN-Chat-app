@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "build-project":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "build-frotend-project":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
+    "build-backend-project":"npm install --legacy-peer-deps "
   },
   "author": "Viraj Agharkar",
   "license": "ISC",
